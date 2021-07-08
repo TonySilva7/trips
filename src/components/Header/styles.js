@@ -6,6 +6,7 @@ export const Container = styled.header`
 	align-items: center;
 	margin: 15px 0;
 	padding: 10px 10px;
+	border-bottom: solid 1px #ddd;
 
 	a:first-child {
 		display: flex;
