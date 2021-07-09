@@ -24,6 +24,21 @@ export const BookingCont = styled.div`
 	background: #fff;
 	border-radius: 4px;
 
+	div {
+		display: flex;
+		align-items: center;
+
+		input {
+			border: solid 1px #eee;
+			border-radius: 4px;
+			color: #242424;
+			padding; 5px;
+			width: 25%;
+			font-weight: 600;
+			font-size: .9rem;
+		}
+	}
+
 	img {
 		height: 100px;
 	}

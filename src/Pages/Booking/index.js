@@ -1,7 +1,10 @@
 import React from 'react';
-import { MdDelete } from 'react-icons/md';
+import { MdAddCircle, MdDelete, MdRemoveCircle } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeReserve } from '../../store/modules/reserve/actions';
+import {
+	removeReserve,
+	updateAmountReserve,
+} from '../../store/modules/reserve/actions';
 import { BookingCont, Container, Title } from './styles';
 
 export default function Booking() {
@@ -11,6 +14,15 @@ export default function Booking() {
 	function handleRemove(id) {
 		dispatch(removeReserve(id));
 	}
+
+	function incrementAmount(trip) {
+		dispatch(updateAmountReserve(trip.id, trip.amount + 1));
+	}
+
+	function decrementAmount(trip) {
+		dispatch(updateAmountReserve(trip.id, trip.amount - 1));
+	}
+
 	return (
 		<Container>
 			<Title>Você solicitou {reserves.length} reserva</Title>
@@ -18,7 +30,18 @@ export default function Booking() {
 				<BookingCont key={reserve.id}>
 					<img src={reserve.image} alt={reserve.title} />
 					<strong>{reserve.title}</strong>
-					<span>Quantidade: {reserve.amount}</span>
+
+					<div>
+						<button type='button' onClick={() => decrementAmount(reserve)}>
+							<MdRemoveCircle size={25} />
+						</button>
+
+						<input type='text' value={reserve.amount} readOnly />
+
+						<button type='button' onClick={() => incrementAmount(reserve)}>
+							<MdAddCircle size={25} />
+						</button>
+					</div>
 
 					<button type='button' onClick={() => handleRemove(reserve.id)}>
 						<MdDelete size={20} color='#191919' />
