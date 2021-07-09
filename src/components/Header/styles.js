@@ -20,6 +20,7 @@ export const Container = styled.header`
 	}
 
 	& > a:last-child {
+		text-decoration: none;
 		div {
 			text-align: right;
 			margin-right: 10px;
