@@ -3,7 +3,7 @@ import { MdAddCircle, MdDelete, MdRemoveCircle } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	removeReserve,
-	updateAmountReserve,
+	updateAmountRequest,
 } from '../../store/modules/reserve/actions';
 import { BookingCont, Container, Title } from './styles';
 
@@ -16,11 +16,11 @@ export default function Booking() {
 	}
 
 	function incrementAmount(trip) {
-		dispatch(updateAmountReserve(trip.id, trip.amount + 1));
+		dispatch(updateAmountRequest(trip.id, trip.amount + 1));
 	}
 
 	function decrementAmount(trip) {
-		dispatch(updateAmountReserve(trip.id, trip.amount - 1));
+		dispatch(updateAmountRequest(trip.id, trip.amount - 1));
 	}
 
 	return (
