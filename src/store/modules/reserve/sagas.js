@@ -1,6 +1,7 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import api from '../../../services/api';
 import { addReserveSuccess, updateAmountSuccess } from './actions';
+import history from '../../../services/history';
 
 function* addToReserve({ id }) {
 	const tripExists = yield select((state) =>
@@ -34,6 +35,7 @@ function* addToReserve({ id }) {
 
 		// dispara uma action para reducer
 		yield put(addReserveSuccess(data));
+		history.push("/bookings");
 	}
 }
 
