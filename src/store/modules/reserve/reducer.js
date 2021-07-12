@@ -1,4 +1,5 @@
 import produce from 'immer';
+
 export default function reserve(state = [], action) {
 	switch (action.type) {
 		case 'ADD_RESERVE_SUCCESS':
